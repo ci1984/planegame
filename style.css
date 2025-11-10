@@ -151,6 +151,33 @@ body {
     background: rgba(255, 107, 107, 1);
 }
 
+/* 感谢信息样式 */
+.credits {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0.8;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.thanks {
+    font-size: 16px;
+    color: #00d4ff;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.tools {
+    font-size: 14px;
+    color: #ffffff;
+    background: linear-gradient(45deg, #ff6b6b, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
 /* 移动端控制器 */
 .mobile-controls {
     position: absolute;
