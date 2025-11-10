@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>小飞机游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 游戏容器 -->
+    <div id="gameContainer">
+        <!-- 游戏画布 -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- 游戏UI界面 -->
+        <div id="gameUI">
+            <!-- 游戏信息显示 -->
+            <div id="gameInfo">
+                <div id="score">得分: 0</div>
+                <div id="lives">生命: 3</div>
+                <div id="highScore">最高分: 0</div>
+            </div>
+
+            <!-- 游戏开始界面 -->
+            <div id="startScreen" class="screen">
+                <h1>小飞机游戏</h1>
+                <p>PC端：方向键移动，空格射击</p>
+                <p>移动端：虚拟摇杆移动，点击射击</p>
+                <button id="startBtn">开始游戏</button>
+            </div>
+
+            <!-- 游戏结束界面 -->
+            <div id="gameOverScreen" class="screen hidden">
+                <h2>游戏结束</h2>
+                <p id="finalScore">最终得分: 0</p>
+                <button id="restartBtn">重新开始</button>
+            </div>
+
+            <!-- 暂停按钮 -->
+            <button id="pauseBtn" class="game-btn hidden">暂停</button>
+        </div>
+
+        <!-- 移动端虚拟控制器 -->
+        <div id="mobileControls" class="mobile-controls">
+            <!-- 虚拟摇杆 -->
+            <div id="joystick" class="joystick">
+                <div id="joystickKnob" class="joystick-knob"></div>
+            </div>
+
+            <!-- 射击按钮 -->
+            <button id="fireBtn" class="fire-btn">射击</button>
+        </div>
+    </div>
+
+    <!-- JavaScript文件 -->
+    <script src="input.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

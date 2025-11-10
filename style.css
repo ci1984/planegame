@@ -1,0 +1,340 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+}
+
+/* 游戏容器 */
+#gameContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 游戏画布 */
+#gameCanvas {
+    border: 2px solid #fff;
+    background: linear-gradient(180deg, #0a0a2a 0%, #1a1a4a 100%);
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.5);
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 游戏UI */
+#gameUI {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* 游戏信息显示 */
+#gameInfo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+#gameInfo div {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 游戏界面样式 */
+.screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    min-width: 300px;
+    border: 2px solid #00d4ff;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    pointer-events: auto;
+}
+
+.screen h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #00d4ff;
+    text-shadow: 0 0 10px #00d4ff;
+}
+
+.screen h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ff6b6b;
+    text-shadow: 0 0 10px #ff6b6b;
+}
+
+.screen p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.screen button {
+    background: linear-gradient(45deg, #00d4ff, #0099cc);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+}
+
+.screen button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.6);
+}
+
+.screen button:active {
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 游戏按钮样式 */
+.game-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 107, 107, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 15;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+}
+
+.game-btn:hover {
+    background: rgba(255, 107, 107, 1);
+}
+
+/* 移动端控制器 */
+.mobile-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* 虚拟摇杆 */
+.joystick {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.joystick-knob {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #00d4ff, #0099cc);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+    transition: none;
+}
+
+/* 射击按钮 */
+.fire-btn {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #ff6b6b, #ff4444);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+    transition: all 0.1s ease;
+}
+
+.fire-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 25px rgba(255, 107, 107, 0.8);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    /* 移动端显示控制器 */
+    .mobile-controls {
+        display: flex;
+    }
+
+    /* 调整游戏信息位置 */
+    #gameInfo {
+        top: 10px;
+        left: 10px;
+        font-size: 14px;
+    }
+
+    #gameInfo div {
+        padding: 3px 6px;
+        margin-bottom: 5px;
+    }
+
+    /* 调暂停按钮位置 */
+    .game-btn {
+        top: 10px;
+        right: 10px;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    /* 调整界面样式 */
+    .screen {
+        padding: 20px;
+        min-width: 280px;
+        margin: 20px;
+    }
+
+    .screen h1 {
+        font-size: 28px;
+    }
+
+    .screen h2 {
+        font-size: 24px;
+    }
+
+    .screen p {
+        font-size: 14px;
+    }
+
+    .screen button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* 小屏幕优化 */
+    .mobile-controls {
+        bottom: 20px;
+        padding: 0 20px;
+    }
+
+    .joystick {
+        width: 100px;
+        height: 100px;
+    }
+
+    .joystick-knob {
+        width: 40px;
+        height: 40px;
+    }
+
+    .fire-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 12px;
+    }
+
+    #gameInfo {
+        font-size: 12px;
+    }
+}
+
+/* 横屏模式优化 */
+@media (orientation: landscape) and (max-height: 500px) {
+    .mobile-controls {
+        bottom: 15px;
+        padding: 0 15px;
+    }
+
+    .joystick {
+        width: 80px;
+        height: 80px;
+    }
+
+    .joystick-knob {
+        width: 35px;
+        height: 35px;
+    }
+
+    .fire-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 11px;
+    }
+
+    .screen {
+        padding: 15px;
+        min-width: 250px;
+    }
+}
+
+/* 动画效果 */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.5); }
+}
+
+/* 防止文本选择和默认行为 */
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
